@@ -14,7 +14,7 @@ namespace WinForms_01
         /// - http://aaronin.jp/ddrallcalc.html
         /// - Waterfall Theme for StepMania/ITG
         /// </summary>
-        static readonly ScoringSystem[] Systems =
+        internal static readonly ScoringSystem[] Systems =
         {
             new ScoringSystem
             {
