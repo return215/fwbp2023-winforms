@@ -9,12 +9,6 @@ namespace WinForms_01
 {
     internal class ScoringSystem
     {
-        internal readonly record struct JudgeValue(string Name, double Value, bool Used = true)
-        {
-            public string Name { get; init; } = Name;
-            public double Value { get; init; } = Value;
-            public bool Used { get; init; } = Used;
-        }
         public string Name { get; init; }
         public List<JudgeValue> Judgements { get; set; }
 
