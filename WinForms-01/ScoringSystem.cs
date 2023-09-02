@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace WinForms_01
 {
-    internal class ScoringSystem
+    public class ScoringSystem
     {
         public string Name { get; init; }
         public List<JudgeValue> Judgements { get; set; }
 
         public (double, double) CalculateScore(int[] judgeCounts) {
             double score = 0;
-            double normalizedScore = 0;
             double maxWeight = double.MinValue;
+            double totalNotes = 0;
             for (int i = 0; i < Judgements.Count; i++)
             {
                 var judge = Judgements[i];
@@ -24,8 +24,9 @@ namespace WinForms_01
 
                 maxWeight = Math.Max(maxWeight, judge.Value);
                 score += judge.Value * judgeCounts[i];
+                totalNotes += judgeCounts[i];
             }
-            normalizedScore = score / maxWeight;
+            double normalizedScore = score / maxWeight / totalNotes;
             return (score, normalizedScore);
         }
 
